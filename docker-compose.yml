@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   nginx-proxy:
@@ -6,10 +6,13 @@ services:
     container_name: nginx-proxy
     ports:
       - "80:80"
+      - "81:81" # port for nginx management UI
+      - "443:443"
+      #- "3000:443" # send grafana over HTTPS
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   whoami:
     image: jwilder/whoami
     environment:
-      - VIRTUAL_HOST=whoami.example
+      - VIRTUAL_HOST=local

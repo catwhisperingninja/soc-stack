@@ -19,7 +19,22 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl
 
-  whoami:
-    image: jwilder/whoami
-    environment:
-      - VIRTUAL_HOST=whoami.example
+  #whoami:
+    #image: jwilder/whoami
+    #environment:
+      #- VIRTUAL_HOST=local
+
+  # grafana:
+  #   image: grafana/grafana-oss:latest
+  #   container_name: grafana
+  #   restart: unless-stopped
+  #   environment:
+  #     - VIRTUAL_HOST=local
+  #     - GF_LOG_LEVEL=debug
+  #   ports: 
+  #     - "3000:3000"
+  #   volumes:
+  #     - 'grafana_storage:/var/lib/grafana'
+      
+  # volumes:
+  #   grafana_storage: {}
